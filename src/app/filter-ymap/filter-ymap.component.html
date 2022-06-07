@@ -1,0 +1,27 @@
+<body>
+
+    <div class="col-md-12">
+        <h2 class="titulo" appTamanoTitulo="titulo"> Muestra de funcionamiento de Filter y Map </h2>
+    </div>
+
+    <div class="row botones">
+        <div class="col-md-6 columna">
+            <p>Se estan filtrando los alumnos menores de 25 años</p>
+
+            <div>
+                <button type="submitFilter" mat-raised-button color="primary" class="boton" (click)="submitFilter()">Ver alumnos filtrados en
+                    consola</button>
+            </div>
+        </div>
+
+        <div class="col-md-6 columna">
+            <p>Se estan agregando 5 años a los alumnos</p>
+
+            <div>
+                <button type="submitMap" mat-raised-button color="primary" class="boton" (click)="submitMap()">Ver alumnos mapeados en
+                    consola</button>
+            </div>
+        </div>
+    </div>
+
+</body>

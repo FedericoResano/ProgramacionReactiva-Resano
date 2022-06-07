@@ -1,0 +1,82 @@
+<!--- Verifico que el usuario sea el ADMIN-->
+<body >
+
+    <div class="col-md-12">
+        <h2 class="titulo" appTamanoTitulo="titulo"> Muestra de funcionamiento de Promise </h2>
+    </div>
+
+    <div>
+            <p> Si completas los campos y das click en el botón, veras los datos en la consola. Si das click con los campos vacios, veras el mensaje de error en consola</p>
+    </div>
+    <form [formGroup]="observableFormGroup" class="example-form pagina" (ngSubmit)="submit()">
+        <!---- Cargo el formulario con sus inputs y validaciones-->
+        <div class="form">
+            <div class="row">
+                    <div class="col-md-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput type="text" formControlName="Apellido">
+                    <mat-hint align="end"></mat-hint>
+                </mat-form-field>
+                <div *ngIf="this.observableFormGroup.get('Apellido')?.errors?.['required'] && !observableFormGroup.get('Apellido')?.pristine"
+                    class="alert alert-danger">Debe ingresar el apellido de la persona</div>
+                <div *ngIf="this.observableFormGroup.get('Apellido')?.errors?.['maxlength'] && !observableFormGroup.get('Apellido')?.pristine"
+                    class="alert alert-danger">El nombre puede exceder los 100 caracteres</div>
+            </div>
+            
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" formControlName="Nombre">
+                    <mat-hint align="end"></mat-hint>
+                </mat-form-field>
+                <div *ngIf="this.observableFormGroup.get('Nombre')?.errors?.['required'] && !observableFormGroup.get('Nombre')?.pristine"
+                    class="alert alert-danger">Debe ingresar el nombre de la persona</div>
+                <div *ngIf="this.observableFormGroup.get('Nombre')?.errors?.['maxlength'] && !observableFormGroup.get('Nombre')?.pristine"
+                    class="alert alert-danger">El nombre puede exceder los 100 caracteres</div>
+            </div>
+    </div>
+        </div>
+        <div class="row">
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Curso</mat-label>
+                <input matInput type="text" formControlName="Curso">
+                <mat-hint align="end"></mat-hint>
+            </mat-form-field>
+            <div *ngIf="this.observableFormGroup.get('Curso')?.errors?.['required'] && !observableFormGroup.get('Curso')?.pristine"
+                class="alert alert-danger">Debe ingresar el curso</div>
+            <div *ngIf="this.observableFormGroup.get('Curso')?.errors?.['maxlength'] && !observableFormGroup.get('Curso')?.pristine"
+                class="alert alert-danger">El curso puede exceder los 50 caracteres</div>
+        </div>
+        
+        <div class="col-md-4">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Mail</mat-label>
+                <input matInput type="text" formControlName="Mail">
+                <mat-hint align="end"></mat-hint>
+            </mat-form-field>
+            <div *ngIf="this.observableFormGroup.get('Mail')?.errors?.['required'] && !observableFormGroup.get('Mail')?.pristine"
+                class="alert alert-danger">Debe ingresar el nombre de la persona)</div>
+            <div *ngIf="this.observableFormGroup.get('Mail')?.errors?.['email'] && !observableFormGroup.get('Mail')?.pristine"
+                class="alert alert-danger">El mail tiene un formato invalido</div>
+        </div>
+    </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Edad</mat-label>
+                <input matInput type="number" formControlName="Edad">
+                <mat-hint align="end"></mat-hint>
+            </mat-form-field>
+            <div *ngIf="this.observableFormGroup.get('Edad')?.errors?.['required'] && !observableFormGroup.get('Edad')?.pristine"
+                class="alert alert-danger">Debe ingresar la edad de la persona)</div>
+            <div *ngIf="this.observableFormGroup.get('Edad')?.errors?.['max'] && !observableFormGroup.get('Edad')?.pristine"
+                class="alert alert-danger">La edad no puede ser superior a 99 años</div>
+        </div>
+
+        <div>
+            <button type="submit" mat-raised-button color="primary" class="boton">Ver Observable en Consola</button>
+        </div>
+
+    </form>
+</body>
